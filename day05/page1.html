@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pay() {
+            // 1. 입력한 값 가지고 오기 (입력)
+            com = document.getElementById('com').value
+            money = document.getElementById('money').value
+            choice = document.getElementById('choice').value
+
+            // 2. 결제 금액 계산해주기  (처리)
+            money2 = parseInt(money)
+
+            if (choice == '2'){ //신용카드 + 1000
+                money2 = money2 + 1000
+            } else if( choice == '3'){
+                money2 = money2 + 500 
+            }
+
+            text = "구매상점은 " + com + "이고, 결제수단은 " + choice +"이고, 결제금액은 <font color='red'>" +money2 + "원</font>입니다."
+
+            // 3. 결과를 출력          (출력)
+            result_tag = document.getElementById('result')
+            result_tag.innerHTML = text
+        }
+    </script>
+</head>
+
+<body>
+    <hr color="red">
+
+    구매 상점 : <input type="text" id="com" value="멀티샵"><br>
+    결제 금액 : <input type="text" id="money" value="10000"><br>
+
+    입력수단 ( 1)계좌 이체, 2)신용카드, 3)휴대폰 결제 )<br>
+    <input type="text" value="1" id="choice"> <br>
+    <button onclick="pay()">결제 버튼</button>
+
+    <hr color="blue">
+    <div id="result">
+
+    </div>
+</body>
+
+</html>

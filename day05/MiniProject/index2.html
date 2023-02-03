@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    <script>
+        function checkYourself() {
+            name = document.getElementById('what').value;
+            radio = document.getElementById('score').value;
+
+            if (name == '') {
+                alert("공부한 것을 입력해주세요")
+                return;
+            }
+            
+            text = ''
+            if(radio == '상'){
+                text="잘하셨습니다"
+            }
+            else if(radio =='중'){
+                text='열심히 하셨네요'
+            }
+            else if(radio == '하'){
+                text='노력합시다'
+            }
+            else{
+                alert("집중도를 입력해주세요")
+                return;
+            }
+
+            result_tag = document.getElementById('result')
+            result_tag.innerHTML = "<img src='image02.png' width=150px><br>" + text
+            
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <table id="contents">
+        <h3>자가 진단</h3>
+        오늘 공부한 것은 <br> <input type="text" id="what"> <br><br>
+        오늘 집중도는? <br> <input type="text" id="score" value="상, 중, 하"> <br><br>
+        스스로 피드백 할점 <br>
+        <textarea value="스스로를 평가해보세요" name="내용" id="how" cols="30" rows="10"></textarea>
+    </table>
+    <button onclick="checkYourself()">점검</button>
+    <hr>
+    <div id="result">
+
+    </div>
+    
+    </div>
+</body>
+
+</html>
